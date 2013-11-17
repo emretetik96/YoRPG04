@@ -1,7 +1,3 @@
-//Ruzeb Chowdhury
-//pd9
-//HW25
-//2013-11-14
 
 //methods and instances for superclass Character
 public abstract class Character {

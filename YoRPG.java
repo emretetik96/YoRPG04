@@ -114,6 +114,28 @@ public class YoRPG {
 		// Give user the option of using a special attack:
 		// If you land a hit, you incur greater damage,
 		// ...but if you get hit, you take more damage.
+		if (isArcher(pat)) {
+			System.out.println("Attack or restock?");
+			System.out.println("\t1: Attack.\n\t2:Restock.");
+			i= Integer.parseInt(in.readLine());
+			if (i == 2) {
+				pat.restock();
+				d1 = 0;
+				d2 = smaug.attack(pat);
+				System.out.println(pat.getName() + " dealt " + d1 + " points of damage.");
+				System.out.println( "Ye Olde Monster hit back for " + d2 + " points of damage.");
+
+			}
+			else {
+				d1 = pat.attack(smaug);
+				d2 = smaug.attack(pat);
+				
+				System.out.println( pat.getName() + " dealt " + d1 + " points of damage.");
+
+                        System.out.println( "Ye Olde Monster hit back for " + d2 + " points of damage.");                                           " points of damage.");
+
+			}
+		}
 		try {
 		    System.out.println( "Do you feel lucky?" );
 		    System.out.println( "\t1: Nay.\n\t2: Aye!" );

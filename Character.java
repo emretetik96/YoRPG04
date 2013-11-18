@@ -1,10 +1,9 @@
-
 //methods and instances for superclass Character
 public abstract class Character {
 
     //instance variables
     protected String _name;
-	protected int  _health, _strength, _defense;
+	protected int  _health, _strength, _defense, _arrowCtr;
     protected double _attack;
 
     //constructor
@@ -13,6 +12,7 @@ public abstract class Character {
 		_strength = 100;
 		_defense = 40;
 		_attack = 0.4;
+		_arrowCtr = 10;
     }
 
     //checks to see if character is still alive
@@ -68,6 +68,11 @@ public abstract class Character {
 		return hp;
 	}
     
+    //allows an archer to restock on arrows
+    public void restock (Archer shoot) {
+    	_arrowCtr = 10;
+    }
+    
     //helpers
     public boolean isWarrior(Character test){
         Character war = new Warrior();
@@ -93,6 +98,18 @@ public abstract class Character {
              return false;
     }
     
+    public boolean isArcher(Character test) {
+    	Character shoot = new Archer();
+    	if (test.getClass() == shoot.getClass()) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    
+    }
+    
+    
     //about supplies descriptions about the character
     public static String about(Character player){
     	Character mon = new Monster();
@@ -112,6 +129,10 @@ public abstract class Character {
     	String leechdesc = 
     			"Born under Hades' guardianship, the necromancer is a hero with dark powers."+
     			"The Necromancer is able to drain the life points of dead enemies!";
+    	Character shoot = new Archer();
+    	String shootdesc = 
+    			"The archer's attacks are swift, like the messenger God Hermes, and they are powerful indeed." +
+			"He has 0.6 attack, but his arrows are limited and must be occasionally restocked." ;   	
     	if (player.getClass() == mon.getClass())
     		return mondesc;
     	else if (player.getClass() == war.getClass())
@@ -120,6 +141,8 @@ public abstract class Character {
     		return healdesc;
     	else if (player.getClass() == leech.getClass())
     		return leechdesc;
+    	else if (player.getClass() == shoot.getClass())
+    		return shootdesc;
     	else
     		return "Your character must be new within these territories!";
     		

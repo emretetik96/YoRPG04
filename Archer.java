@@ -1,11 +1,10 @@
 //class Archer
-//
 public class Archer extends Character {
 
     public Archer() {
         super();
-        _attack = 0.2;
-        _strength = 80;
+        _attack = 0.6;
+        _strength = 100;
     }
 
     public int attack(Monster evil) {
@@ -15,6 +14,7 @@ public class Archer extends Character {
             damage = 0;
         }
         evil.lowerHP(damage);
+        _arrowCtr --;
         return damage;
     }
 

@@ -136,6 +136,7 @@ public class YoRPG {
 
 			}
 		}
+		else {
 		try {
 		    System.out.println( "Do you feel lucky?" );
 		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
@@ -156,6 +157,7 @@ public class YoRPG {
 
 		System.out.println( "Ye Olde Monster hit back for " + d2 +
 				    " points of damage.");
+		}
 	    }//end while
 
 	    //option 1: you & the monster perish
